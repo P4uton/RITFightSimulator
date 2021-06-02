@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rise in Time Fight Simulator</title>
+    <script type="text/javascript" src="values.js"></script>
+    <script type="text/javascript" src="code.js"></script>
+    <script type="text/javascript" src="UnitTable.js"></script>
+
+
+</head>
+<body id="body">
+
+<style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+    .tg .tg-c6of{background-color:#ffffff;border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg">
+    <thead>
+    <tr>
+        <th>
+            <select id="World_Select" onselect="fillTable()">
+                <option>Beginner World</option>
+                <option>Advanced World</option>
+            </select>
+        </th>
+    </tr>
+    <tr>
+        <th class="tg-0pky">Normal Units</th>
+        <th class="tg-0pky">Attack</th>
+        <th class="tg-0pky">Defense</th>
+        <th class="tg-0pky">Travel Time (s/field)</th>
+        <th class="tg-0pky">Recruitment Duration</th>
+        <th class="tg-0pky">Power ratio (attack/time)</th>
+        <th class="tg-0pky">Defence ratio (defence/time)</th>
+        <th class="tg-0pky">Effective against</th>
+        <th class="tg-0pky">Weak against</th>
+        <th class="tg-0pky">Recruiting Location</th>
+        <th class="tg-0pky">max. Strength generated in 24h per field</th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table0_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table0_1"></th>
+        <th class="tg-0pky" id="Unit_Table0_2"></th>
+        <th class="tg-0pky" id="Unit_Table0_3"></th>
+        <th class="tg-0pky" id="Unit_Table0_4"></th>
+        <th class="tg-0pky" id="Unit_Table0_5"></th>
+        <th class="tg-0pky" id="Unit_Table0_6"></th>
+        <th class="tg-0pky" id="Unit_Table0_7"></th>
+        <th class="tg-0pky" id="Unit_Table0_8"></th>
+        <th class="tg-0pky" id="Unit_Table0_9"></th>
+        <th class="tg-0pky" id="Unit_Table0_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table1_0">Druid Naki</th>
+        <th class="tg-0pky" id="Unit_Table1_1"></th>
+        <th class="tg-0pky" id="Unit_Table1_2"></th>
+        <th class="tg-0pky" id="Unit_Table1_3"></th>
+        <th class="tg-0pky" id="Unit_Table1_4"></th>
+        <th class="tg-0pky" id="Unit_Table1_5"></th>
+        <th class="tg-0pky" id="Unit_Table1_6"></th>
+        <th class="tg-0pky" id="Unit_Table1_7"></th>
+        <th class="tg-0pky" id="Unit_Table1_8"></th>
+        <th class="tg-0pky" id="Unit_Table1_9"></th>
+        <th class="tg-0pky" id="Unit_Table1_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table2_0">Guard Naki</th>
+        <th class="tg-0pky" id="Unit_Table2_1"></th>
+        <th class="tg-0pky" id="Unit_Table2_2"></th>
+        <th class="tg-0pky" id="Unit_Table2_3"></th>
+        <th class="tg-0pky" id="Unit_Table2_4"></th>
+        <th class="tg-0pky" id="Unit_Table2_5"></th>
+        <th class="tg-0pky" id="Unit_Table2_6"></th>
+        <th class="tg-0pky" id="Unit_Table2_7"></th>
+        <th class="tg-0pky" id="Unit_Table2_8"></th>
+        <th class="tg-0pky" id="Unit_Table2_9"></th>
+        <th class="tg-0pky" id="Unit_Table2_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table3_0">Grass Spirit</th>
+        <th class="tg-0pky" id="Unit_Table3_1"></th>
+        <th class="tg-0pky" id="Unit_Table3_2"></th>
+        <th class="tg-0pky" id="Unit_Table3_3"></th>
+        <th class="tg-0pky" id="Unit_Table3_4"></th>
+        <th class="tg-0pky" id="Unit_Table3_5"></th>
+        <th class="tg-0pky" id="Unit_Table3_6"></th>
+        <th class="tg-0pky" id="Unit_Table3_7"></th>
+        <th class="tg-0pky" id="Unit_Table3_8"></th>
+        <th class="tg-0pky" id="Unit_Table3_9"></th>
+        <th class="tg-0pky" id="Unit_Table3_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table4_0">Forest Spirit</th>
+        <th class="tg-0pky" id="Unit_Table4_1"></th>
+        <th class="tg-0pky" id="Unit_Table4_2"></th>
+        <th class="tg-0pky" id="Unit_Table4_3"></th>
+        <th class="tg-0pky" id="Unit_Table4_4"></th>
+        <th class="tg-0pky" id="Unit_Table4_5"></th>
+        <th class="tg-0pky" id="Unit_Table4_6"></th>
+        <th class="tg-0pky" id="Unit_Table4_7"></th>
+        <th class="tg-0pky" id="Unit_Table4_8"></th>
+        <th class="tg-0pky" id="Unit_Table4_9"></th>
+        <th class="tg-0pky" id="Unit_Table4_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table5_0">Elder Spirit</th>
+        <th class="tg-0pky" id="Unit_Table5_1"></th>
+        <th class="tg-0pky" id="Unit_Table5_2"></th>
+        <th class="tg-0pky" id="Unit_Table5_3"></th>
+        <th class="tg-0pky" id="Unit_Table5_4"></th>
+        <th class="tg-0pky" id="Unit_Table5_5"></th>
+        <th class="tg-0pky" id="Unit_Table5_6"></th>
+        <th class="tg-0pky" id="Unit_Table5_7"></th>
+        <th class="tg-0pky" id="Unit_Table5_8"></th>
+        <th class="tg-0pky" id="Unit_Table5_9"></th>
+        <th class="tg-0pky" id="Unit_Table5_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table6_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table6_1"></th>
+        <th class="tg-0pky" id="Unit_Table6_2"></th>
+        <th class="tg-0pky" id="Unit_Table6_3"></th>
+        <th class="tg-0pky" id="Unit_Table6_4"></th>
+        <th class="tg-0pky" id="Unit_Table6_5"></th>
+        <th class="tg-0pky" id="Unit_Table6_6"></th>
+        <th class="tg-0pky" id="Unit_Table6_7"></th>
+        <th class="tg-0pky" id="Unit_Table6_8"></th>
+        <th class="tg-0pky" id="Unit_Table6_9"></th>
+        <th class="tg-0pky" id="Unit_Table6_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table7_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table7_1"></th>
+        <th class="tg-0pky" id="Unit_Table7_2"></th>
+        <th class="tg-0pky" id="Unit_Table7_3"></th>
+        <th class="tg-0pky" id="Unit_Table7_4"></th>
+        <th class="tg-0pky" id="Unit_Table7_5"></th>
+        <th class="tg-0pky" id="Unit_Table7_6"></th>
+        <th class="tg-0pky" id="Unit_Table7_7"></th>
+        <th class="tg-0pky" id="Unit_Table7_8"></th>
+        <th class="tg-0pky" id="Unit_Table7_9"></th>
+        <th class="tg-0pky" id="Unit_Table7_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table8_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table8_1"></th>
+        <th class="tg-0pky" id="Unit_Table8_2"></th>
+        <th class="tg-0pky" id="Unit_Table8_3"></th>
+        <th class="tg-0pky" id="Unit_Table8_4"></th>
+        <th class="tg-0pky" id="Unit_Table8_5"></th>
+        <th class="tg-0pky" id="Unit_Table8_6"></th>
+        <th class="tg-0pky" id="Unit_Table8_7"></th>
+        <th class="tg-0pky" id="Unit_Table8_8"></th>
+        <th class="tg-0pky" id="Unit_Table8_9"></th>
+        <th class="tg-0pky" id="Unit_Table8_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table9_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table9_1"></th>
+        <th class="tg-0pky" id="Unit_Table9_2"></th>
+        <th class="tg-0pky" id="Unit_Table9_3"></th>
+        <th class="tg-0pky" id="Unit_Table9_4"></th>
+        <th class="tg-0pky" id="Unit_Table9_5"></th>
+        <th class="tg-0pky" id="Unit_Table9_6"></th>
+        <th class="tg-0pky" id="Unit_Table9_7"></th>
+        <th class="tg-0pky" id="Unit_Table9_8"></th>
+        <th class="tg-0pky" id="Unit_Table9_9"></th>
+        <th class="tg-0pky" id="Unit_Table9_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table10_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table10_1"></th>
+        <th class="tg-0pky" id="Unit_Table10_2"></th>
+        <th class="tg-0pky" id="Unit_Table10_3"></th>
+        <th class="tg-0pky" id="Unit_Table10_4"></th>
+        <th class="tg-0pky" id="Unit_Table10_5"></th>
+        <th class="tg-0pky" id="Unit_Table10_6"></th>
+        <th class="tg-0pky" id="Unit_Table10_7"></th>
+        <th class="tg-0pky" id="Unit_Table10_8"></th>
+        <th class="tg-0pky" id="Unit_Table10_9"></th>
+        <th class="tg-0pky" id="Unit_Table10_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table11_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table11_1"></th>
+        <th class="tg-0pky" id="Unit_Table11_2"></th>
+        <th class="tg-0pky" id="Unit_Table11_3"></th>
+        <th class="tg-0pky" id="Unit_Table11_4"></th>
+        <th class="tg-0pky" id="Unit_Table11_5"></th>
+        <th class="tg-0pky" id="Unit_Table11_6"></th>
+        <th class="tg-0pky" id="Unit_Table11_7"></th>
+        <th class="tg-0pky" id="Unit_Table11_8"></th>
+        <th class="tg-0pky" id="Unit_Table11_9"></th>
+        <th class="tg-0pky" id="Unit_Table11_10"></th>
+    </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table12_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table12_1"></th>
+        <th class="tg-0pky" id="Unit_Table12_2"></th>
+        <th class="tg-0pky" id="Unit_Table12_3"></th>
+        <th class="tg-0pky" id="Unit_Table12_4"></th>
+        <th class="tg-0pky" id="Unit_Table12_5"></th>
+        <th class="tg-0pky" id="Unit_Table12_6"></th>
+        <th class="tg-0pky" id="Unit_Table12_7"></th>
+        <th class="tg-0pky" id="Unit_Table12_8"></th>
+        <th class="tg-0pky" id="Unit_Table12_9"></th>
+        <th class="tg-0pky" id="Unit_Table12_10"></th>
+    </tr>
+
+    </thead>
+</table>
+
+<br>
+<br>
+
+<table class="tg">
+    <thead>
+    <tr>
+        <th class="tg-0pky">Fight Simulator</th>
+        <th class="tg-0pky"></th>
+        <th class="tg-0pky" colspan="3"></th>
+        <th class="tg-0pky"></th>
+        <th class="tg-0pky"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">%</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">death</td>
+        <td class="tg-0pky">%</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">death</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Spotter Naki</span></td>
+        <td class="tg-0pky" id="off%0">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <td class="tg-0pky" id="offDeath0">0</td>
+        <td class="tg-0pky" id="def%0">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath0">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Druid Naki</span></td>
+        <td class="tg-0pky" id="off%1">0%</td>
+        <td class="att_num">
+            <input type="number" value="0"class="attack_number">
+        </td>
+        <td class="tg-0pky" id="offDeath1">0</td>
+        <td class="tg-0pky" id="def%1">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath1">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Guard Naki</span></td>
+        <td class="tg-0pky" id="off%2">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <td class="tg-0pky" id="offDeath2">0</td>
+        <td class="tg-0pky" id="def%2">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath2">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Grass Spirit</span></td>
+        <td class="tg-0pky" id="off%3">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath3">0</td>
+        <td class="tg-0pky" id="def%3">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath3">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Forest Spirit</span></td>
+        <td class="tg-0pky" id="off%4">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath4">0</td>
+        <td class="tg-0pky" id="def%4">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath4">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Elder Spirit</span></td>
+        <td class="tg-0pky" id="off%5">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath5">0</td>
+        <td class="tg-0pky"  id="def%5">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath5">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Pangoan</span></td>
+        <td class="tg-0pky" id="off%6">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath6">0</td>
+        <td class="tg-0pky"  id="def%6">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath6">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Athlas</span></td>
+        <td class="tg-0pky" id="off%7">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath7">0</td>
+        <td class="tg-0pky"  id="def%7">0%</td>
+        <td class="def_num">
+            <input type="number" value="0" class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath7">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Marshy</span></td>
+        <td class="tg-0pky" id="off%8">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath8">0</td>
+        <td class="tg-0pky"  id="def%8">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath8">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Wasty</span></td>
+        <td class="tg-0pky" id="off%9">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath9">0</td>
+        <td class="tg-0pky" id="def%9">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath9">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Raider Naki</span></td>
+        <td class="tg-0pky" id="off%10">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath10">0</td>
+        <td class="tg-0pky" id="def%10">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath10">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Teryx</span></td>
+        <td class="tg-0pky" id="off%11">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath11">0</td>
+        <td class="tg-0pky" id="def%11">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath11">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Ovivi</span></td>
+        <td class="tg-0pky" id="off%12">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath12">0</td>
+        <td class="tg-0pky" id="def%12">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath12">0</td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-c6of"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-c6of"></td>
+        <td class="tg-0pky"></td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Skill</span></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-c6of">
+            <input type="number" id="offensive_Skill" value="0" >
+            %
+        </td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-c6of">
+            <input type="number" id="defensive_Skill" value="0" >
+            %
+        </td>
+        <td class="tg-0pky"></td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">effective Unit</span></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">0%</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">Plague(true/false)</td>
+        <td class="tg-c6of">
+            <select id="plague">
+                <option value=false>false</option>
+                <option value=true>true</option>
+            </select>
+        </td>
+        <td class="tg-0pky"></td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">Healing</td>
+        <td class="tg-c6of">
+            <input type="number" value="0">
+            %
+        </td>
+        <td class="tg-0pky"></td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">Strength</td>
+        <td class="tg-0pky"><span style="font-weight:bold">Strength lost</span></td>
+        <td class="tg-0pky">Difference</td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky">Defense</td>
+        <td class="tg-0pky"></td>
+    </tr>
+    <tr>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky" id="totalAttack"><span style="font-weight:bold">0</span></td>
+        <td class="tg-c6of" id="StrengthLost">0</td>
+        <td class="tg-c6of" id="Difference"><span style="font-style:italic">0</span></td>
+        <td class="tg-0pky"></td>
+        <td class="tg-0pky" id="totalDefense"><span style="font-weight:bold">0</span></td>
+        <td class="tg-0pky" ></td>
+    </tr>
+    </tbody>
+</table>
+
+<input type="button" value="calculate" id ="button" onclick="calculate()" >
+
+
+</body>
+</html>
