@@ -28,15 +28,56 @@ function calculate() {
     let offensiveDeathArray = calc_OffensiveDeathArray(attack_values, totalAttack, totalDefense);
     fillOffensiveDeaths(offensiveDeathArray);
 
-    console.log("filltable");
+
     fillTable(totalAttack, totalDefense);
     let strengthLost = calc_StrengthLost(offensiveDeathArray);
     fillStrengthLost(strengthLost);
 
+    //returns an Array with only names  of attacking units
+    let UnitNamesAttackArray = createUnitArray(attack_values);
+    let UnitNamesDefenseArray = createUnitArray(defensive_values);
+    calculateEffectiveness(totalAttack, totalDefense, attack_values, defensive_values, UnitNamesAttackArray, UnitNamesDefenseArray);
 
     console.log("Success");
 }
 
+function calculateEffectiveness(totalAttack, totalDefense, attack_values, defense_values, UnitNamesAttackArray, UnitNamesDefenseArray ) {
+    let attackerEffectiveness = 0;
+    let defenderEffectiveness = 0;
+    const amountTotalOff = totalAttack;
+    const amountTotalDef = totalDefense;
+    let totalUnitsOff = calc_totalUnits(attack_values);
+    let totalUnitsDef = calc_totalUnits(defense_values);
+    const percentageArrayOffensive = calc_Percentages(attack_values, totalUnitsOff);
+    const percentageArrayDefensive = calc_Percentages(defense_values, totalUnitsDef);
+
+    if (amountTotalDef && amountTotalOff){
+        for (let i = 0; i < UnitArray.length; i++){
+            if (percentageArrayOffensive[i] > 0) {
+                //let defender
+                for (let j = 0; i< UnitNamesDefenseArray.length; j++) {
+                    if (UnitNamesAttackArray[i].Effective + "i" === UnitNamesDefenseArray[i].Weak + "i") {
+                        console.log(UnitArray[i].Effective0 + unitNamesArray[i])
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+//create Array with only names of attacking units
+function createUnitArray(values) {
+    let array = [];
+    for (let i = 0; i < UnitArray.length; i++) {
+        if (values[i] > 0){
+            array.push(unitNamesArray[i]);
+        }
+    }
+    console.log(array);
+    return array;
+
+}
 
 function calc_totalOffensive(totalAttack, attack_values) {
 
@@ -71,7 +112,6 @@ function calc_totalDefense(totalDefense, defensive_values) {
     for (let y = 0; y < defensive_values.length; y++){
         totalDefense += defensive_values[y] * UnitArray[y].Defense;
     }
-    console.log(totalDefense);
 
     totalDefense += totalDefense * (defensive_Skill/100);
 
@@ -105,7 +145,7 @@ function calc_Percentages(unitArray, totalNumberOfUnits){
         percentageArray.push((unitArray[y]/totalNumberOfUnits*100).toFixed(2));
 
     }
-    //console.log(percentageArray);
+
     return percentageArray;
 }
 
@@ -193,7 +233,6 @@ function fillOffensiveDeaths(offensiveDeathArray) {
 }
 
 function fillTable(totalAttack, totalDefense,) {
-    console.log(arguments.length);
 
     //set totalAttack field
     let text = document.getElementById("totalAttack");
@@ -201,7 +240,6 @@ function fillTable(totalAttack, totalDefense,) {
 
     //set total Defesnive field
     text = document.getElementById("totalDefense");
-    console.log("hier");
     text.innerHTML = totalDefense;
 
     //set difference
