@@ -9,10 +9,10 @@ In values.js
 3. add Unit name to unitNamesArray
 
 In index.htlm
-4. add new table row to unit overview table
-5. adjust table header IDs so it counts up correctly
-6. add new table row to FightSim Table
-7. adjust IDs so they count up correctly
+1. add new table row to unit overview table
+2. adjust table header IDs so it counts up correctly
+3. add new table row to FightSim Table
+4. adjust IDs so they count up correctly
 
 
 Done.
