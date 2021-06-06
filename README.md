@@ -14,6 +14,7 @@ In index.htlm
 6. add new table row to FightSim Table
 7. adjust IDs so they count up correctly
 
+
 Done.
 
   
