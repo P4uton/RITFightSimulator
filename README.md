@@ -1,1 +1,21 @@
 # RITFightSimulator
+Made by Pauton
+
+To add new Unit:
+
+In values.js
+1. Add new Unit Object (const NewUnit = {Strength: 0, Defense: 0, Speed: 0 ,RecruitmentTime: 0,RecruitingLocation : "Marshlands", Effective0: null, Effective3: null, Effective4: null, Effective5: null, Weak: "Nothing"};
+2. add Unit Object to UnitArray and unitArray
+3. add Unit name to unitNamesArray
+
+In index.htlm
+4. add new table row to unit overview table
+5. adjust table header IDs so it counts up correctly
+6. add new table row to FightSim Table
+7. adjust IDs so they count up correctly
+
+Done.
+
+  
+  
+  
