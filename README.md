@@ -8,7 +8,7 @@ In values.js
 2. add Unit Object to UnitArray and unitArray
 3. add Unit name to unitNamesArray
 
-In index.htlm
+In index.html
 1. add new table row to unit overview table
 2. adjust table header IDs so it counts up correctly
 3. add new table row to FightSim Table
