@@ -20,11 +20,12 @@
     .tg .tg-c6of{background-color:#ffffff;border-color:inherit;text-align:left;vertical-align:top}
 </style>
 
+<!--Unit Overview Table-->
 <table class="tg">
     <thead>
     <tr>
         <th>
-            <select id="World_Select" onselect="fillTable()">
+            <select id="World_Select" onchange= "fillUnitTable()">
                 <option>Beginner World</option>
                 <option>Advanced World</option>
             </select>
@@ -212,11 +213,26 @@
         <th class="tg-0pky" id="Unit_Table12_9"></th>
         <th class="tg-0pky" id="Unit_Table12_10"></th>
     </tr>
+    <tr>
+        <th class="tg-0pky" id="Unit_Table13_0">Spotter Naki</th>
+        <th class="tg-0pky" id="Unit_Table13_1"></th>
+        <th class="tg-0pky" id="Unit_Table13_2"></th>
+        <th class="tg-0pky" id="Unit_Table13_3"></th>
+        <th class="tg-0pky" id="Unit_Table13_4"></th>
+        <th class="tg-0pky" id="Unit_Table13_5"></th>
+        <th class="tg-0pky" id="Unit_Table13_6"></th>
+        <th class="tg-0pky" id="Unit_Table13_7"></th>
+        <th class="tg-0pky" id="Unit_Table13_8"></th>
+        <th class="tg-0pky" id="Unit_Table13_9"></th>
+        <th class="tg-0pky" id="Unit_Table13_10"></th>
+    </tr>
     </thead>
 </table>
 <br>
 <br>
 <br>
+
+<!--FightSim Table-->
 <table class="tg">
     <thead>
     <tr>
@@ -263,13 +279,14 @@
         </td>
         <td class="tg-0pky" id="defDeath1">0</td>
     </tr>
+
     <tr>
-        <td class="tg-0pky"><span style="font-weight:bold">Guard Naki</span></td>
+        <td class="tg-0pky"><span style="font-weight:bold">Grass Spirit</span></td>
         <td class="tg-0pky" id="off%2">0%</td>
         <td class="att_num">
             <input type="number" value="0" class="attack_number">
         </td>
-        <td class="tg-0pky" id="offDeath2">0</td>
+        <<td class="tg-0pky" id="offDeath2">0</td>
         <td class="tg-0pky" id="def%2">0%</td>
         <td class="def_num">
             <input type="number" value="0"class="def_number">
@@ -277,7 +294,7 @@
         <td class="tg-0pky" id="defDeath2">0</td>
     </tr>
     <tr>
-        <td class="tg-0pky"><span style="font-weight:bold">Grass Spirit</span></td>
+        <td class="tg-0pky"><span style="font-weight:bold">Forest Spirit</span></td>
         <td class="tg-0pky" id="off%3">0%</td>
         <td class="att_num">
             <input type="number" value="0" class="attack_number">
@@ -290,12 +307,12 @@
         <td class="tg-0pky" id="defDeath3">0</td>
     </tr>
     <tr>
-        <td class="tg-0pky"><span style="font-weight:bold">Forest Spirit</span></td>
+        <td class="tg-0pky"><span style="font-weight:bold">Guard Naki</span></td>
         <td class="tg-0pky" id="off%4">0%</td>
         <td class="att_num">
             <input type="number" value="0" class="attack_number">
         </td>
-        <<td class="tg-0pky" id="offDeath4">0</td>
+        <td class="tg-0pky" id="offDeath4">0</td>
         <td class="tg-0pky" id="def%4">0%</td>
         <td class="def_num">
             <input type="number" value="0"class="def_number">
@@ -342,7 +359,7 @@
         <td class="tg-0pky" id="defDeath7">0</td>
     </tr>
     <tr>
-        <td class="tg-0pky"><span style="font-weight:bold">Marshy</span></td>
+        <td class="tg-0pky"><span style="font-weight:bold">Nyxi</span></td>
         <td class="tg-0pky" id="off%8">0%</td>
         <td class="att_num">
             <input type="number" value="0" class="attack_number">
@@ -355,7 +372,7 @@
         <td class="tg-0pky" id="defDeath8">0</td>
     </tr>
     <tr>
-        <td class="tg-0pky"><span style="font-weight:bold">Wasty</span></td>
+        <td class="tg-0pky"><span style="font-weight:bold">Ranax</span></td>
         <td class="tg-0pky" id="off%9">0%</td>
         <td class="att_num">
             <input type="number" value="0" class="attack_number">
@@ -368,7 +385,7 @@
         <td class="tg-0pky" id="defDeath9">0</td>
     </tr>
     <tr>
-        <td class="tg-0pky"><span style="font-weight:bold">Raider Naki</span></td>
+        <td class="tg-0pky"><span style="font-weight:bold">Ovivi</span></td>
         <td class="tg-0pky" id="off%10">0%</td>
         <td class="att_num">
             <input type="number" value="0" class="attack_number">
@@ -394,7 +411,7 @@
         <td class="tg-0pky" id="defDeath11">0</td>
     </tr>
     <tr>
-        <td class="tg-0pky"><span style="font-weight:bold">Ovivi</span></td>
+        <td class="tg-0pky"><span style="font-weight:bold">Raider</span></td>
         <td class="tg-0pky" id="off%12">0%</td>
         <td class="att_num">
             <input type="number" value="0" class="attack_number">
@@ -406,6 +423,21 @@
         </td>
         <td class="tg-0pky" id="defDeath12">0</td>
     </tr>
+
+    <tr>
+        <td class="tg-0pky"><span style="font-weight:bold">Held</span></td>
+        <td class="tg-0pky" id="off%13">0%</td>
+        <td class="att_num">
+            <input type="number" value="0" class="attack_number">
+        </td>
+        <<td class="tg-0pky" id="offDeath13">0</td>
+        <td class="tg-0pky" id="def%13">0%</td>
+        <td class="def_num">
+            <input type="number" value="0"class="def_number">
+        </td>
+        <td class="tg-0pky" id="defDeath13">0</td>
+    </tr>
+
     <tr>
         <td class="tg-0pky"></td>
         <td class="tg-0pky"></td>
@@ -433,11 +465,11 @@
     <tr>
         <td class="tg-0pky"><span style="font-weight:bold">effective Unit</span></td>
         <td class="tg-0pky"></td>
-        <td class="tg-0pky">0%</td>
+        <td class="tg-0pky" id="effectiveOff">0</td>
+        <td class="tg-0pky">%</td>
         <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
-        <td class="tg-0pky"></td>
+        <td class="tg-0pky" id="effectiveDef">0</td>
+        <td class="tg-0pky">%</td>
     </tr>
     <tr>
         <td class="tg-0pky"></td>
