@@ -181,14 +181,16 @@ function calc_totalDefense(defensive_values) {
     let totalDefense = 0;
     //get Defensive Skill
     let defensive_Skill = document.getElementById("defensive_Skill").value;
+    defensive_Skill = parseInt(defensive_Skill);
     let effectivePercent = document.getElementById("effectiveDef").innerText;
+    effectivePercent = parseInt(effectivePercent);
 
     //multiply defenders with corresponding defensive values
     for (let y = 0; y < defensive_values.length; y++){
         totalDefense += defensive_values[y] * UnitArray[y].Defense;
     }
 
-    totalDefense += totalDefense * ((defensive_Skill+effectivePercent)/100);
+    totalDefense += totalDefense * ((defensive_Skill + effectivePercent)/100);
 
     let totalUnits = calc_totalUnits(defensive_values);
     let percentageArray = calc_Percentages(defensive_values, totalUnits);
