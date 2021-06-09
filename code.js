@@ -9,7 +9,7 @@ function calculate() {
     for (let i=0; i < UnitArray.length;i++ ) {
         attack_values.push(document.getElementsByClassName("attack_number")[i].value);
     }
-    //console.log(attack_values);
+
 
     //put number of defender units in Array
     for (let i=0; i < UnitArray.length;i++ ) {
@@ -42,34 +42,40 @@ function calculate() {
 }
 
 function calculateEffectiveness(attack_values, defense_values, UnitNamesAttackArray, UnitNamesDefenseArray ) {
-    let totalAttack = calc_totalOffensiveNoSkill(attack_values);
-    let totalDefense = calc_totalDefenseNoSkill(defense_values);
-    let attackerEffectiveness;
-    let defenderEffectiveness;
+    let override = document.getElementById("override").value;
+    if (override === "false") {
+        let totalAttack = calc_totalOffensiveNoSkill(attack_values);
+        let totalDefense = calc_totalDefenseNoSkill(defense_values);
+        let attackerEffectiveness;
+        let defenderEffectiveness;
 
-    //Array of individual Strength per Unit (num of Units * unit.strength)
-    let strengthArray = calc_individualOffensive(attack_values);
-    //Array of individual Defense per Unit (num of Units * unit.defense)
-    let defenseArray = calc_individualDefense(defense_values);
+        //Array of individual Strength per Unit (num of Units * unit.strength)
+        let strengthArray = calc_individualOffensive(attack_values);
+        //Array of individual Defense per Unit (num of Units * unit.defense)
+        let defenseArray = calc_individualDefense(defense_values);
 
-    const percentageArrayOffensive = calc_Percentages(strengthArray, totalAttack);
-    const percentageArrayDefensive = calc_Percentages(defenseArray, totalDefense);
+        const percentageArrayOffensive = calc_Percentages(strengthArray, totalAttack);
+        const percentageArrayDefensive = calc_Percentages(defenseArray, totalDefense);
 
-    console.log("Prozente:");
-    console.log(percentageArrayOffensive);
-    console.log(percentageArrayDefensive);
 
-    //cals calc_Effectiveness function, which looks for all effective matchups. To calculate for defender simply switch the values and arrays
-    attackerEffectiveness = calc_Effectiveness(totalAttack, totalDefense, percentageArrayOffensive, percentageArrayDefensive, UnitNamesDefenseArray);
-    defenderEffectiveness = calc_Effectiveness(totalDefense, totalAttack, percentageArrayDefensive, percentageArrayOffensive, UnitNamesAttackArray);
-    console.log("attacker Effectiveness: "+ attackerEffectiveness);
-    console.log("defender Effectiveness: "+ defenderEffectiveness);
+        //cals calc_Effectiveness function, which looks for all effective matchups. To calculate for defender simply switch the values and arrays
+        attackerEffectiveness = calc_Effectiveness(totalAttack, totalDefense, percentageArrayOffensive, percentageArrayDefensive, UnitNamesDefenseArray);
+        defenderEffectiveness = calc_Effectiveness(totalDefense, totalAttack, percentageArrayDefensive, percentageArrayOffensive, UnitNamesAttackArray);
 
-    let effectiveOff = document.getElementById("effectiveOff");
-    effectiveOff.innerHTML = Math.round(attackerEffectiveness);
+        let effectiveOff = document.getElementById("effectiveOff");
+        effectiveOff.innerHTML = Math.round(attackerEffectiveness);
 
-    let effectiveDef = document.getElementById("effectiveDef");
-    effectiveDef.innerHTML = Math.round(defenderEffectiveness);
+        let effectiveDef = document.getElementById("effectiveDef");
+        effectiveDef.innerHTML = Math.round(defenderEffectiveness);
+    }
+    else {
+        let effectiveOff = document.getElementById("effectiveOff");
+        effectiveOff.innerHTML = 0;
+
+        let effectiveDef = document.getElementById("effectiveDef");
+        effectiveDef.innerHTML = 0;
+    }
+
 
 
 }
@@ -81,27 +87,21 @@ function calc_Effectiveness(totalAttack, totalDefense, percentageArrayOffensive,
                 for (let j = 0; j < UnitNamesDefenseArray.length; j++) {
                     let unitNameOff = unitNamesArray[i];
                     if (unitArray[unitNameOff].Effective0 === UnitNamesDefenseArray[j] && unitArray[unitNameOff].Effective0 != null) {
-                        console.log(unitArray[unitNameOff].Effective0 + UnitNamesDefenseArray[j]);
                         Effectiveness += (percentageArrayOffensive[i] * percentageArrayDefensive[j])/100;
                     }
                     if (unitArray[unitNameOff].Effective1 === UnitNamesDefenseArray[j] && unitArray[unitNameOff].Effective1 != null) {
-                        console.log(unitArray[unitNameOff].Effective1 + UnitNamesDefenseArray[j]);
                         Effectiveness += (percentageArrayOffensive[i] * percentageArrayDefensive[j])/100;
                     }
                     if (unitArray[unitNameOff].Effective2 === UnitNamesDefenseArray[j] && unitArray[unitNameOff].Effective2 != null) {
-                        console.log(unitArray[unitNameOff].Effective2 + UnitNamesDefenseArray[j]);
                         Effectiveness += (percentageArrayOffensive[i] * percentageArrayDefensive[j])/100;
                     }
                     if (unitArray[unitNameOff].Effective3 === UnitNamesDefenseArray[j] && unitArray[unitNameOff].Effective3 != null) {
-                        console.log(unitArray[unitNameOff].Effective3 + UnitNamesDefenseArray[j]);
                         Effectiveness += (percentageArrayOffensive[i] * percentageArrayDefensive[j])/100;
                     }
                     if (unitArray[unitNameOff].Effective4 === UnitNamesDefenseArray[j] && unitArray[unitNameOff].Effective4 != null) {
-                        console.log(unitArray[unitNameOff].Effective4 + UnitNamesDefenseArray[j]);
                         Effectiveness += (percentageArrayOffensive[i] * percentageArrayDefensive[j])/100;
                     }
                     if (unitArray[unitNameOff].Effective5 === UnitNamesDefenseArray[j] && unitArray[unitNameOff].Effective5 != null) {
-                        console.log(unitArray[unitNameOff].Effective5 + UnitNamesDefenseArray[j]);
                         Effectiveness += (percentageArrayOffensive[i] * percentageArrayDefensive[j])/100;
                     }
                 }
@@ -123,7 +123,6 @@ function createUnitArray(values) {
         }
         else array.push(null);
     }
-    console.log(array);
     return array;
 }
 
@@ -184,7 +183,6 @@ function calc_totalDefense(defensive_values) {
     let defensive_Skill = document.getElementById("defensive_Skill").value;
     let effectivePercent = document.getElementById("effectiveDef").innerText;
 
-    //console.log(defensive_values);
     //multiply defenders with corresponding defensive values
     for (let y = 0; y < defensive_values.length; y++){
         totalDefense += defensive_values[y] * UnitArray[y].Defense;
@@ -202,7 +200,6 @@ function calc_totalDefense(defensive_values) {
 //calculate total Defense without Skill applied
 function calc_totalDefenseNoSkill(defensive_values) {
     let totalDefense = 0;
-    //console.log(defensive_values);
     //multiply defenders with corresponding defensive values
     for (let y = 0; y < defensive_values.length; y++){
         totalDefense += defensive_values[y] * UnitArray[y].Defense;
@@ -234,7 +231,6 @@ function calc_totalUnits(unitArray) {
         else totalNumberOfUnits += parseInt(unitArray[y]);
     }
 
-    //console.log("number of Units: " + totalNumberOfUnits);
 
     return totalNumberOfUnits;
 
@@ -285,7 +281,6 @@ function calc_DefensiveDeaths(defensive_Values, totalAttack, totalDefense) {
             defensiveDeathArray.push(Math.ceil(defensive_Values[i]));
         }
     }
-    //console.log("defensive Death Array:"+defensiveDeathArray);
     getPlagueStatus();
     return defensiveDeathArray;
 
@@ -312,7 +307,6 @@ function calc_OffensiveDeathArray(attack_values, totalAttack, totalDefense) {
         }
     }
 
-    //console.log("offensiveDeathArray: " + offensiveDeathArray);
     return offensiveDeathArray;
 }
 
@@ -354,7 +348,7 @@ function getDifference(totalAttack, totalDefense) {
         return 0;
     }
     let difference = totalAttack/totalDefense;
-    return difference = +difference.toFixed(15);
+    return difference = +difference.toFixed(5);
 
 }
 
@@ -380,7 +374,6 @@ function fillStrengthLost(strengthLost) {
 function onLoad(){
     let button = document.getElementById("body");
     button.addEventListener("keyup", function (event) {
-       // console.log(event.code);
         if (event.code === "Enter" ) {
             calculate();
         }

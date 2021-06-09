@@ -11,11 +11,11 @@ const Nyxi = {Strength: 50, Defense: 20, Speed: 250 ,RecruitmentTime: 24,  Recru
 const Ranax = {Strength: 250, Defense: 10, Speed: 350, RecruitmentTime: 80,  RecruitingLocation : "Marshlands", Effective0: "Marshy", Effective1: "Grass Spirit", Effective2: "Forest Spirit", Effective3: null, Effective4: null, Effective5: null,Weak: "Nothing"};
 const Ovivi = {Strength: 10, Defense: 150, Speed: 10 ,RecruitmentTime: 10,  RecruitingLocation : "Marshlands", Effective0: "Grass Spirit", Effective1: "Forest Spirit", Effective2: "Elder Spirit", Effective3: null, Effective4: null, Effective5: null,Weak: "Nothing"};
 const Teryx = {Strength: 10, Defense: 10, Speed: 250 ,RecruitmentTime: 10,  RecruitingLocation : "Marshlands", Effective0: "Druid Naki", Effective1: " rass Spirit", Effective2: "Forest Spirit", Effective3: "Guard Naki", Effective4: "Elder spirit", Effective5: null, Weak: "Nothing"};
-const Raider = {Strength: 10, Defense: 10, Speed: 10 ,RecruitmentTime: 10, RecruitingLocation : "Marshlands", Effective0: "nothing", Effective1: null, Effective2: null, Effective3: null, Effective4: null, Effective5: null, Weak: "Nothing"};
-const Held = {Strength: 50000, Defense: 10, Speed: 10 ,RecruitmentTime: 10, RecruitingLocation : "Marshlands", Effective0: "Grass Spirit", Effective1: "Forest Spirit", Effective2: "Elder Spirit", Effective3: null, Effective4: null, Effective5: null,Weak: "Nothing"};
+const Raider = {Strength: 5, Defense: 11, Speed: 200 ,RecruitmentTime: 6.8, RecruitingLocation : "Marshlands", Effective0: "nothing", Effective1: null, Effective2: null, Effective3: null, Effective4: null, Effective5: null, Weak: "Nothing"};
+const OviviHero = {Strength: 50000, Defense: 10, Speed: 10 ,RecruitmentTime: 10, RecruitingLocation : "Marshlands", Effective0: "Grass Spirit", Effective1: "Forest Spirit", Effective2: "Elder Spirit", Effective3: null, Effective4: null, Effective5: null,Weak: "Nothing"};
 
 //Oder of Units in Array has to match order of Units in HTML
-const UnitArray = [SpotterNaki, DruidNaki, GrassSpirit, ForestSpirit, GuardNaki, ElderSpirit, Pangoan, Athlas, Nyxi, Ranax, Ovivi, Teryx, Raider, Held];
-const unitArray = {"Spotter Naki" : SpotterNaki, "Druid Naki": DruidNaki, "Grass Spirit": GrassSpirit, "Forest Spirit": ForestSpirit, "Guard Naki": GuardNaki, "Elder Spirit": ElderSpirit, "Pangoan": Pangoan, "Athlas": Athlas,"Nyxi": Nyxi,"Ranax": Ranax, "Ovivi": Ovivi, "Teryx": Teryx, "Raider": Raider, "Held": Held};
-const unitNamesArray = ["Spotter Naki", "Druid Naki", "Grass Spirit", "Forest Spirit", "Guard Naki", "Elder Spirit", "Pangoan", "Athlas", "Nyxi", "Ranax", "Ovivi", "Teryx", "Raider", "Held"];
+const UnitArray = [SpotterNaki, DruidNaki, GrassSpirit, ForestSpirit, GuardNaki, ElderSpirit, Pangoan, Athlas, Nyxi, Ranax, Ovivi, Teryx, Raider, OviviHero];
+const unitArray = {"Spotter Naki" : SpotterNaki, "Druid Naki": DruidNaki, "Grass Spirit": GrassSpirit, "Forest Spirit": ForestSpirit, "Guard Naki": GuardNaki, "Elder Spirit": ElderSpirit, "Pangoan": Pangoan, "Athlas": Athlas,"Nyxi": Nyxi,"Ranax": Ranax, "Ovivi": Ovivi, "Teryx": Teryx, "Raider": Raider, "Ovivi Hero": OviviHero};
+const unitNamesArray = ["Spotter Naki", "Druid Naki", "Grass Spirit", "Forest Spirit", "Guard Naki", "Elder Spirit", "Pangoan", "Athlas", "Nyxi", "Ranax", "Ovivi", "Teryx", "Raider", "Ovivi Hero"];
 
