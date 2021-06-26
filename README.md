@@ -1,7 +1,12 @@
 # RITFightSimulator
 Made by Pauton
 
-To add new Unit:
+There are two Versions:
+FightSimulatorVue: This is the Version running on orb.riseintime.com. Most likely you won't be able to run this version yourself, since the rest of the build is missing.
+RITFightSimulator: This version is written entirely in vanilla Javascript, HTML and CSS. It will run directly in your browser if you download it. However at this point it is outdated.
+
+
+To add new Unit in Vanilla Version (Process is slightly different in Vue Version):
 
 In values.js
 1. Add new Unit Object (const NewUnit = {Strength: 0, Defense: 0, Speed: 0 ,RecruitmentTime: 0,RecruitingLocation : "Marshlands", Effective0: null, Effective3: null, Effective4: null, Effective5: null, Weak: "Nothing"};
