@@ -26,8 +26,11 @@ Done.
 
 ToDo:
 -Additional Fields for Skills, Runes, Artefacts
+
 -Toggle to override auto effective calc and enable manual total skill input
+
 -Add Hero Units to values.js
+
 -Correct all values in values.js
   
   
