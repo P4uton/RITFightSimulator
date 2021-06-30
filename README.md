@@ -3,6 +3,7 @@ Made by Pauton
 
 There are two Versions:
 FightSimulatorVue: This is the Version running on orb.riseintime.com. Most likely you won't be able to run this version yourself, since the rest of the build is missing.
+
 RITFightSimulator: This version is written entirely in vanilla Javascript, HTML and CSS. It will run directly in your browser if you download it. However at this point it is outdated.
 
 
