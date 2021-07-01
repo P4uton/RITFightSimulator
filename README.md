@@ -42,6 +42,8 @@ ToDo Vue:
 - Give default size to offensive percentage column so it doesn't jump around as much
 - remove Calculate button
 - rename Strength to Attack or smth.
+- Move UnitTable to the bottom
+- Hyperlink units
 
  
   
