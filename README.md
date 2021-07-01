@@ -44,7 +44,7 @@ ToDo Vue:
 - rename Strength to Attack or smth.
 - Move UnitTable to the bottom
 - Hyperlink units
-
+- change difference rounding to something more appropriate
  
   
   
