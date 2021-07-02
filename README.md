@@ -36,15 +36,8 @@ ToDo Vanilla:
 ToDo Vue:
 
 - Additional Fields for Skills, Runes, Artefacts
-- switch Attack lost with Attack and find better naming schemes
-- remove type:bold from Attack lost
-- Add indicator if the Fight was won or not
-- Give default size to offensive percentage column so it doesn't jump around as much
-- remove Calculate button
 - rename Strength to Attack or smth.
-- Move UnitTable to the bottom
 - Hyperlink units
-- change difference rounding to something more appropriate
  
   
   
